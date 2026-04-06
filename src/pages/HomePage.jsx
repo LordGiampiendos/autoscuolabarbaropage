@@ -13,7 +13,7 @@ const HomePage = () => {
 
     const updateComments = () => {
         setLoading(true);
-        axios.get('https://serverautoscuola.pagekite.me/api/comments/comments')
+        axios.get('https://serverautoscuolabarbaro.pagekite.me/api/comments/comments')
             .then(response => {
                 setComments(response.data);
                 setLoading(false);

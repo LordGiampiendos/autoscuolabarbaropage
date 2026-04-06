@@ -15,7 +15,7 @@ const EmailVerification = () => {
 
     useEffect(() => {
         const verifyEmail = () => {
-            axios.get(`https://serverautoscuola.pagekite.me/api/users/verify-email?token=${token}`)
+            axios.get(`https://serverautoscuolabarbaro.pagekite.me/api/users/verify-email?token=${token}`)
             .then(() => {
                 setSuccess(true);
                 setLoading(false);

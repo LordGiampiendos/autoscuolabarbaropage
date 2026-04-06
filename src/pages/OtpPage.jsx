@@ -46,7 +46,7 @@ const OtpPage = () => {
         return;
       }
 
-      await axios.post(`https://serverautoscuola.pagekite.me/api/users${endpoint}`, {
+      await axios.post(`https://serverautoscuolabarbaro.pagekite.me/api/users${endpoint}`, {
         preAuthToken: preToken,
       });
 
@@ -68,7 +68,7 @@ const OtpPage = () => {
       if (selectedMethod === 'app') endpoint = '/verify-otpA';
       if (selectedMethod === 'email') endpoint = '/verify-otpE';
 
-      const res = await axios.post(`https://serverautoscuola.pagekite.me/api/users${endpoint}`, {
+      const res = await axios.post(`https://serverautoscuolabarbaro.pagekite.me/api/users${endpoint}`, {
         preAuthToken: preToken,
         code,
       });

@@ -16,7 +16,7 @@ const EditEmailPopup = ({ show, handleClose, authToken }) => {
     }
     setLoading(true);
     const requestData = { newEmail, password };
-    axios.post('https://serverautoscuola.pagekite.me/api/users/edit-email', requestData, {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/edit-email', requestData, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },

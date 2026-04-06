@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         const formData = new FormData();
         formData.append('email', email);
 
-        axios.post('https://serverautoscuola.pagekite.me/api/users/recovery-password', formData)
+        axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/recovery-password', formData)
             .then((response) => {
                 setMessage(response.data);
                 setLoading(false);

@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (authToken) {
-      axios.get('https://servercorporation.pagekite.me/api/users/get-session-data', {
+      axios.get('https://serverautoscuolabarbaro.pagekite.me/api/users/get-session-data', {
         headers: {
           'Authorization': `Bearer ${authToken}` 
         },

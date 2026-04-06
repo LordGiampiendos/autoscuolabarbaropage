@@ -18,7 +18,7 @@ const EditPasswordPopup = ({ show, handleClose, authToken }) => {
     setLoading(true);
     const requestData = { password: currentPassword, newPassword };
 
-    axios.post('https://serverautoscuola.pagekite.me/api/users/edit-password', requestData, {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/edit-password', requestData, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },

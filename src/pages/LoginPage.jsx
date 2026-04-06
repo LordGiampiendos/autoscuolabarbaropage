@@ -24,7 +24,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://serverautoscuola.pagekite.me/api/users/login', {
+      const response = await axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/login', {
         email: values.email,
         password: values.password,
       });
@@ -54,7 +54,7 @@ const LoginPage = () => {
 
     try {
       const { credential } = response;
-      const googleResponse = await axios.post('https://serverautoscuola.pagekite.me/api/users/google-login', {
+      const googleResponse = await axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/google-login', {
         tokenId: credential,
       });
 

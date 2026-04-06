@@ -15,7 +15,7 @@ const InsertPasswordPopup = ({ show, handleClose, authToken }) => {
     }
 
     setLoading(true);
-    axios.post('https://serverautoscuola.pagekite.me/api/users/insert-password', { newPassword }, {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/insert-password', { newPassword }, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },

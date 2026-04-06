@@ -27,7 +27,7 @@ const ResetPassword = () => {
             return;
         }
 
-        axios.post('https://serverautoscuola.pagekite.me/api/users/reset-password', { token, newPassword })
+        axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/reset-password', { token, newPassword })
             .then(response => {
                 setMessage(response.data);
                 setLoading(false);

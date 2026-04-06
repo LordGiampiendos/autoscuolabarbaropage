@@ -22,15 +22,15 @@ const ProductDetailPage = () => {
             setLoading(true);
             try {
                 const [productRes, commentsRes] = await Promise.all([
-                    axios.get(`https://serverautoscuola.pagekite.me/api/products/public/${id}`),
-                    axios.get(`https://serverautoscuola.pagekite.me/api/comments/users/external/${id}`)
+                    axios.get(`https://serverautoscuolabarbaro.pagekite.me/api/products/public/${id}`),
+                    axios.get(`https://serverautoscuolabarbaro.pagekite.me/api/comments/users/external/${id}`)
                 ]);
                 setProduct(productRes.data);
                 setComments(commentsRes.data);
 
                 if (authToken) {
                     try {
-                        const userCommentRes = await axios.get(`https://serverautoscuola.pagekite.me/api/comments/user/${id}`, {
+                        const userCommentRes = await axios.get(`https://serverautoscuolabarbaro.pagekite.me/api/comments/user/${id}`, {
                             headers: { Authorization: `Bearer ${authToken}` }
                         });
                         setUserComment(userCommentRes.data);
@@ -60,7 +60,7 @@ const ProductDetailPage = () => {
         formData.append('content', commentContent);
         formData.append('productId', id);
         try {
-            await axios.post('https://serverautoscuola.pagekite.me/api/comments', formData, {
+            await axios.post('https://serverautoscuolabarbaro.pagekite.me/api/comments', formData, {
                 headers: { Authorization: `Bearer ${authToken}` }
             });
             setLoadingSubmit(false);
@@ -77,7 +77,7 @@ const ProductDetailPage = () => {
         const formData = new FormData();
         formData.append('content', commentContent);
         try {
-            await axios.put(`https://serverautoscuola.pagekite.me/api/comments/users/${userComment.commentId}`, formData, {
+            await axios.put(`https://serverautoscuolabarbaro.pagekite.me/api/comments/users/${userComment.commentId}`, formData, {
                 headers: { Authorization: `Bearer ${authToken}` }
             });
             setLoadingSubmit(false);
@@ -91,7 +91,7 @@ const ProductDetailPage = () => {
     const handleDeleteComment = async () => {
         setLoadingDelete(true);
         try {
-            await axios.delete(`https://serverautoscuola.pagekite.me/api/comments/users/${userComment.commentId}`, {
+            await axios.delete(`https://serverautoscuolabarbaro.pagekite.me/api/comments/users/${userComment.commentId}`, {
                 headers: { Authorization: `Bearer ${authToken}` }
             });
             setLoadingDelete(false);

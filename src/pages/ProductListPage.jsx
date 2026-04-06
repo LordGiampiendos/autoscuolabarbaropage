@@ -28,7 +28,7 @@ const ProductListPage = () => {
   });
 
   useEffect(() => {
-    axios.get('https://serverautoscuola.pagekite.me/api/products/products')
+    axios.get('https://serverautoscuolabarbaro.pagekite.me/api/products/products')
       .then(response => {
         setProducts(response.data);
         setFilteredProducts(response.data);
@@ -56,7 +56,7 @@ const ProductListPage = () => {
 
   const handleDelete = (id) => {
     setIsDeletingProduct(id);
-    axios.delete(`https://serverautoscuola.pagekite.me/api/products/admin/${id}`, {
+    axios.delete(`https://serverautoscuolabarbaro.pagekite.me/api/products/admin/${id}`, {
       headers: { Authorization: `Bearer ${authToken}` }
     })
       .then(() => {
@@ -81,7 +81,7 @@ const ProductListPage = () => {
 
   const handleAddSubmit = (values) => {
     setIsAddingProduct(true);
-    axios.post('https://serverautoscuola.pagekite.me/api/products/admin', values, {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/products/admin', values, {
       headers: { Authorization: `Bearer ${authToken}` }
     })
       .then(response => {
@@ -98,7 +98,7 @@ const ProductListPage = () => {
 
   const handleUpdateSubmit = (values) => {
     setIsUpdatingProduct(true);
-    axios.put(`https://serverautoscuola.pagekite.me/api/products/admin/${selectedProduct.id}`, values, {
+    axios.put(`https://serverautoscuolabarbaro.pagekite.me/api/products/admin/${selectedProduct.id}`, values, {
       headers: { Authorization: `Bearer ${authToken}` }
     })
       .then(response => {

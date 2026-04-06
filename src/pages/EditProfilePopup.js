@@ -57,7 +57,7 @@ const EditProfilePopup = ({ show, handleClose, user, authToken }) => {
       formData.append('img', imgUrl);
     }
 
-    axios.post('https://serverautoscuola.pagekite.me/api/users/profile', formData, {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/profile', formData, {
       headers: {
         'Authorization': `Bearer ${authToken}`,
       },

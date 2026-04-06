@@ -56,7 +56,7 @@ const ProfilePage = () => {
 
   const generateQRCode = () => {
     setLoadingOtp(true);
-    axios.get("https://serverautoscuola.pagekite.me/api/users/generate-qr", {
+    axios.get("https://serverautoscuolabarbaro.pagekite.me/api/users/generate-qr", {
       headers: { 'Authorization': `Bearer ${authToken}` },
     })
       .then(response => {
@@ -74,7 +74,7 @@ const ProfilePage = () => {
 
   const handleDeleteProfile = () => {
     setIsLoadingR(true);
-    axios.get("https://serverautoscuola.pagekite.me/api/users/removeU", {
+    axios.get("https://serverautoscuolabarbaro.pagekite.me/api/users/removeU", {
       headers: { 'Authorization': `Bearer ${authToken}` },
     })
       .then(() => {
@@ -94,7 +94,7 @@ const ProfilePage = () => {
       return;
     }
     setIsLoadingOtp(true);
-    axios.post("https://serverautoscuola.pagekite.me/api/users/verify-code", { code: mfaCode.trim(), secret: secret}, {
+    axios.post("https://serverautoscuolabarbaro.pagekite.me/api/users/verify-code", { code: mfaCode.trim(), secret: secret}, {
       headers: { 'Authorization': `Bearer ${authToken}` },
     })
       .then(response => {
@@ -131,9 +131,9 @@ const ProfilePage = () => {
       });
   };
 
-  const enableMFAemail = () => toggleMFAServerCall('https://serverautoscuola.pagekite.me/api/users/insert-MFAe');
-  const disableMFAapp = () => toggleMFAServerCall('https://serverautoscuola.pagekite.me/api/users/mfaA-off');
-  const disableMFAemail = () => toggleMFAServerCall('https://serverautoscuola.pagekite.me/api/users/mfaE-off');
+  const enableMFAemail = () => toggleMFAServerCall('https://serverautoscuolabarbaro.pagekite.me/api/users/insert-MFAe');
+  const disableMFAapp = () => toggleMFAServerCall('https://serverautoscuolabarbaro.pagekite.me/api/users/mfaA-off');
+  const disableMFAemail = () => toggleMFAServerCall('https://serverautoscuolabarbaro.pagekite.me/api/users/mfaE-off');
 
   const copiaInClipboard = () => {
     if (secret) {

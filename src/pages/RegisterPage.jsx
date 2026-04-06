@@ -54,7 +54,7 @@ const RegisterPage = () => {
     setCheckingUsername(true);
 
     axios
-      .get(`https://serverautoscuola.pagekite.me/api/users/check-username?username=${encodeURIComponent(username)}`)
+      .get(`https://serverautoscuolabarbaro.pagekite.me/api/users/check-username?username=${encodeURIComponent(username)}`)
       .then((res) => {
         setUsernameAvailable(!res.data.exists);
       })
@@ -102,7 +102,7 @@ const RegisterPage = () => {
 
     try {
       const response = await axios.post(
-        'https://serverautoscuola.pagekite.me/api/users/register',
+        'https://serverautoscuolabarbaro.pagekite.me/api/users/register',
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
@@ -123,7 +123,7 @@ const RegisterPage = () => {
     setError('');
 
     const { credential } = response;
-    axios.post('https://serverautoscuola.pagekite.me/api/users/register-google', {
+    axios.post('https://serverautoscuolabarbaro.pagekite.me/api/users/register-google', {
       tokenId: credential,
     })
       .then(() => {
