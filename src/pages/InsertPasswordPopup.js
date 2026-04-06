@@ -1,0 +1,86 @@
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Alert, Button, Form, Modal, Spinner } from 'react-bootstrap';
+
+const InsertPasswordPopup = ({ show, handleClose, authToken }) => {
+  const [newPassword, setNewPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = () => {
+    setError('');
+    if (!newPassword) {
+      setError('Please enter a password.');
+      return;
+    }
+
+    setLoading(true);
+    axios.post('https://serverautoscuola.pagekite.me/api/users/insert-password', { newPassword }, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    })
+      .then(() => {
+        setLoading(false);
+        setNewPassword('');
+        handleClose();
+        window.location.reload();
+      })
+      .catch(() => {
+        setLoading(false);
+        setError('Error while inserting the password.');
+      });
+  };
+
+  return (
+    <Modal
+      show={show}
+      onHide={handleClose}
+      centered
+      backdrop="static"
+      keyboard={!loading}
+    >
+      <Modal.Header closeButton={!loading}>
+        <Modal.Title>Enter Password</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {error && <Alert variant="danger">{error}</Alert>}
+        <Form>
+          <Form.Group controlId="formNewPassword" className="mb-3">
+            <Form.Label>New Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter the new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              disabled={loading}
+              autoFocus
+              isInvalid={error && !newPassword}
+            />
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose} disabled={loading}>
+          Cancel
+        </Button>
+        <Button
+          variant="primary"
+          onClick={handleSubmit}
+          disabled={loading || !newPassword}
+        >
+          {loading ? (
+            <>
+              <Spinner animation="border" size="sm" />
+              <span className="ms-2">Saving...</span>
+            </>
+          ) : (
+            'Save Changes'
+          )}
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+export default InsertPasswordPopup;
