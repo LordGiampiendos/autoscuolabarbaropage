@@ -201,7 +201,7 @@ const ProductListPage = () => {
                 </div>
               </div>
   
-              <Image url={product.demoUrl} />
+              <Image src={product.demoUrl} />
             </Col>
           ))
         ) : (

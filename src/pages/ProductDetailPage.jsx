@@ -135,7 +135,7 @@ const ProductDetailPage = () => {
 
                             {product.demoUrl && (
                                 <div className="text-center">
-                                    <Image url={product.demoUrl} />
+                                    <Image src={product.demoUrl} />
                                 </div>
                             )}
 
