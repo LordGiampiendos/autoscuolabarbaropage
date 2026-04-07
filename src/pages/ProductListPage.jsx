@@ -199,8 +199,8 @@ const ProductListPage = () => {
                     </>
                   ) : null}
                 </div>
-                
-                <Image src={product.demoUrl} />
+
+                <Image src={product.demoUrl} fluid />
               </div>
             </Col>
           ))
